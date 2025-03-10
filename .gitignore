@@ -1,0 +1,28 @@
+# Ignore Visual Studio files
+.vs/
+*.vscode/
+*.suo
+*.user
+*.sln.docstates
+
+# Ignore build output
+bin/
+obj/
+
+# Ignore NuGet packages
+*.nuget.props
+*.nuget.targets
+packages/
+
+# Ignore user-specific files
+*.suo
+*.user
+*.userprefs
+*.usertasks
+
+# Ignore build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/

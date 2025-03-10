@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KuboDinner.Domain", "KuboDinner.Domain\KuboDinner.Domain.csproj", "{D5C0E0C8-D14A-4669-A390-434A8E8CF31C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KuboDinner.Application", "KuboDinner.Application\KuboDinner.Application.csproj", "{1BAD6DE3-8DCF-45C5-BE68-D2558719FB57}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D5C0E0C8-D14A-4669-A390-434A8E8CF31C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5C0E0C8-D14A-4669-A390-434A8E8CF31C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5C0E0C8-D14A-4669-A390-434A8E8CF31C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5C0E0C8-D14A-4669-A390-434A8E8CF31C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BAD6DE3-8DCF-45C5-BE68-D2558719FB57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BAD6DE3-8DCF-45C5-BE68-D2558719FB57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BAD6DE3-8DCF-45C5-BE68-D2558719FB57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BAD6DE3-8DCF-45C5-BE68-D2558719FB57}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {83D4AE44-2796-4A47-8F3B-13BC009225AA}
+	EndGlobalSection
+EndGlobal

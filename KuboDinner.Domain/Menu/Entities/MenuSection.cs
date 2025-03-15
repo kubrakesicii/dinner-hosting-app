@@ -1,5 +1,4 @@
-﻿using KuboDinner.Domain.Bill.ValueObjects;
-using KuboDinner.Domain.Menu.Entities;
+﻿using KuboDinner.Domain.Menu.Entities;
 using KuboDinner.Domain.Menu.ValueObjects;
 using KuboDinner.Domain.SeedWork;
 

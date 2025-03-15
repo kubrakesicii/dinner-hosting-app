@@ -1,0 +1,6 @@
+@KuboDinner.API_HostAddress = http://localhost:5148
+
+GET {{KuboDinner.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

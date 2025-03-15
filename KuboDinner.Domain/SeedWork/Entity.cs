@@ -3,6 +3,8 @@
     public abstract class Entity<TId> : IEquatable<Entity<TId>>
         where TId : notnull
     {
+        protected Entity() { Id = default!; } // Avoids compiler errors
+
         public TId Id { get; protected set; } //inherit olanlar setleyebilir.
 
         protected Entity(TId id)

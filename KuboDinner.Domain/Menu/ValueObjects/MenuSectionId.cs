@@ -4,6 +4,7 @@ namespace KuboDinner.Domain.Menu.ValueObjects
 {
     public class MenuSectionId : ValueObject
     {
+        private MenuSectionId() { }
         public Guid Value { get; private set; }
 
         public MenuSectionId(Guid value)

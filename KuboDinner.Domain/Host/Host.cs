@@ -1,7 +1,6 @@
 ﻿using KuboDinner.Domain.Dinner.ValueObjects;
-using KuboDinner.Domain.Guest.Entities;
 using KuboDinner.Domain.HostAggregate.ValueObjects;
-using KuboDinner.Domain.MenuAggregate.ValueObjects;
+using KuboDinner.Domain.Menu.ValueObjects;
 using KuboDinner.Domain.SeedWork;
 using KuboDinner.Domain.UserAggregate.ValueObjects;
 

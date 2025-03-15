@@ -1,10 +1,12 @@
-﻿using KuboDinner.Domain.MenuAggregate.ValueObjects;
-using KuboDinner.Domain.SeedWork;
+﻿using KuboDinner.Domain.SeedWork;
+using Microsoft.EntityFrameworkCore;
 
 namespace KuboDinner.Domain.Menu.ValueObjects
 {
-    public class AverageRating : ValueObject
+    [Owned]
+    public sealed class AverageRating : ValueObject
     {
+        private AverageRating() { }
         public AverageRating(int numRatings, float value)
         {
             NumRatings = numRatings;

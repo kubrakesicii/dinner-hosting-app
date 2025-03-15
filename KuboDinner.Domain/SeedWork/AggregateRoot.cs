@@ -2,6 +2,7 @@
 {
     public abstract class AggregateRoot<TId> : Entity<TId> where TId : notnull
     {
+        protected AggregateRoot() : base(default!) { } // Pass default value to Entity<TId>
         public DateTime CreateDate { get; private set; } = DateTime.Now;
         public DateTime UpdateDate { get; private set; } = DateTime.Now;
         protected AggregateRoot(TId id) : base(id)

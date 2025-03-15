@@ -1,9 +1,10 @@
 ﻿using KuboDinner.Domain.SeedWork;
 
-namespace KuboDinner.Domain.MenuAggregate.ValueObjects
+namespace KuboDinner.Domain.Menu.ValueObjects
 {
     public sealed class MenuId : ValueObject
     {
+        private MenuId() { }
         public Guid Value { get; }
 
         public MenuId(Guid value)

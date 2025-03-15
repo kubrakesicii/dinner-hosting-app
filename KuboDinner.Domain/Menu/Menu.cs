@@ -2,7 +2,6 @@
 using KuboDinner.Domain.HostAggregate.ValueObjects;
 using KuboDinner.Domain.Menu.ValueObjects;
 using KuboDinner.Domain.MenuAggregate.Entities;
-using KuboDinner.Domain.MenuAggregate.ValueObjects;
 using KuboDinner.Domain.MenuReview.ValueObjects;
 using KuboDinner.Domain.SeedWork;
 
@@ -11,7 +10,7 @@ namespace KuboDinner.Domain.Menu
     public sealed class Menu : AggregateRoot<MenuId>
     {
 
-        public Menu(MenuId id, string name, string description, AverageRating averageRating, 
+        private Menu(MenuId id, string name, string description, AverageRating averageRating, 
             HostId hostId) : base(id)
         {
             Sections = _sections.AsReadOnly().ToList();
@@ -22,6 +21,8 @@ namespace KuboDinner.Domain.Menu
             AverageRating = averageRating;
             HostId = hostId;
         }
+
+        private Menu() { }
 
         public string Name { get; private set; }
         public string Description { get; private set; }

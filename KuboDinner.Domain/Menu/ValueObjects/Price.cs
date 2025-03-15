@@ -1,9 +1,10 @@
 ﻿using KuboDinner.Domain.SeedWork;
 
-namespace KuboDinner.Domain.MenuAggregate.ValueObjects
+namespace KuboDinner.Domain.Menu.ValueObjects
 {
     public class Price : ValueObject
     {
+        private Price() { }
         public string Currency { get; }
         public decimal Amount { get; }
 

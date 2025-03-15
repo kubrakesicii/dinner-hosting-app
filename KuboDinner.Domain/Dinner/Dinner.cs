@@ -2,8 +2,7 @@
 using KuboDinner.Domain.Dinner.Enums;
 using KuboDinner.Domain.Dinner.ValueObjects;
 using KuboDinner.Domain.HostAggregate.ValueObjects;
-using KuboDinner.Domain.Menu.Entities;
-using KuboDinner.Domain.MenuAggregate.ValueObjects;
+using KuboDinner.Domain.Menu.ValueObjects;
 using KuboDinner.Domain.SeedWork;
 
 namespace KuboDinner.Domain.Dinner
@@ -31,6 +30,9 @@ namespace KuboDinner.Domain.Dinner
         private readonly List<Reservation> _reservations = new();
         public IReadOnlyList<Reservation> Reservations { get; }
 
+        private Dinner()
+        {
+        }
         public Dinner(DinnerId id, string name, string description, DateTime startedDateTime, DateTime endedDateTime,
             DateTime startDateTime, DateTime endDateTime, DinnerStatus status, bool ısPublic, int maxGuests, ValueObjects.Price price,
             HostId hostId, MenuId menuId, string imageUrl, Location location) : base(id)

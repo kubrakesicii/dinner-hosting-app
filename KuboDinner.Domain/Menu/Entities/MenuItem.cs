@@ -1,12 +1,16 @@
 ﻿using KuboDinner.Domain.Menu.ValueObjects;
+using KuboDinner.Domain.MenuAggregate.Entities;
 using KuboDinner.Domain.SeedWork;
 
 namespace KuboDinner.Domain.Menu.Entities
 {
     public class MenuItem : Entity<MenuItemId>
     {
+        private MenuItem() { }
         public string Name { get; private set; }
         public string Description { get; private set; }
+        public MenuSectionId MenuSectionId { get; private set; }
+        public MenuId MenuId { get; private set; } 
 
         private MenuItem(MenuItemId id,string name, string description) : base(id)
         {

@@ -3,7 +3,6 @@ using KuboDinner.Domain.Menu;
 using KuboDinner.Domain.Menu.Entities;
 using KuboDinner.Domain.Menu.ValueObjects;
 using KuboDinner.Domain.MenuAggregate.Entities;
-using KuboDinner.Domain.MenuAggregate.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -30,8 +29,6 @@ namespace KuboDinner.Infrastructure.Persistence.Configurations
                     id => id.Value,
                     value => MenuId.CreateUnique());
 
-            builder.HasOne(x => x.AverageRating);
-
             builder.Property(x => x.Name)
                 .HasMaxLength(50);
             builder.Property(x => x.Description)
@@ -43,8 +40,7 @@ namespace KuboDinner.Infrastructure.Persistence.Configurations
                     id => id.Value,
                     value => HostId.CreateUnique());
 
-            builder.Navigation(x => x.Sections).Metadata.SetField("_sections");
-            builder.Navigation(x => x.Sections).UsePropertyAccessMode(PropertyAccessMode.Field);
+            builder.OwnsOne(x => x.AverageRating); 
         }
 
         public void ConfigureMenuSectionsTable(EntityTypeBuilder<Menu> builder)
@@ -53,27 +49,28 @@ namespace KuboDinner.Infrastructure.Persistence.Configurations
             {
                 sb.ToTable("MenuSections");
                 sb.WithOwner().HasForeignKey("MenuId");
-                sb.HasKey(nameof(MenuSection.Id),"MenuId");  //Composite key
+                sb.HasKey(ms => new { ms.Id, ms.MenuId });
 
                 sb.Property(s => s.Id)
-                .ValueGeneratedNever()
+                    .ValueGeneratedNever()
                     .HasConversion(
                         secId => secId.Value,
-                        value => MenuSectionId.CreateUnique());
-
-                sb.Property(x => x.Name)
+                        value => MenuSectionId.CreateUnique())
                     .HasMaxLength(50);
-                sb.Property(x => x.Description)
-                    .HasMaxLength(150);
 
-                sb.Navigation(s => s.Items).Metadata.SetField("_items");
-                sb.Navigation(s => s.Items).UsePropertyAccessMode(PropertyAccessMode.Field);
+                sb.Property(x => x.Name).HasMaxLength(50);
+                sb.Property(x => x.Description).HasMaxLength(150);
+
+                sb.Property(i => i.MenuId)
+                       .HasConversion(
+                           mId => mId.Value,
+                           value => new MenuId(value));
 
                 sb.OwnsMany(x => x.Items, itemBuilder =>
                 {
                     itemBuilder.ToTable("MenuItems");
-                    itemBuilder.WithOwner().HasForeignKey("MenuId","MenuSectionId");
-                    itemBuilder.HasKey(nameof(MenuItem.Id), "MenuSectionId");
+                    itemBuilder.WithOwner().HasForeignKey(mi => new { mi.MenuSectionId, mi.MenuId });
+                    itemBuilder.HasKey(mi => new { mi.Id, mi.MenuSectionId, mi.MenuId });
 
                     itemBuilder.Property(i => i.Id)
                         .ValueGeneratedNever()
@@ -81,12 +78,26 @@ namespace KuboDinner.Infrastructure.Persistence.Configurations
                             itemId => itemId.Value,
                             value => MenuItemId.CreateUnique());
 
-                    itemBuilder.Property(x => x.Name)
-                        .HasMaxLength(50);
-                    itemBuilder.Property(x => x.Description)
-                        .HasMaxLength(150);
+                    itemBuilder.Property(i => i.MenuSectionId)
+                        .HasConversion(
+                            secId => secId.Value,
+                            value => new MenuSectionId(value));
+
+                    itemBuilder.Property(i => i.MenuId)
+                        .HasConversion(
+                            mId => mId.Value,
+                            value => new MenuId(value));
+
+                    itemBuilder.Property(x => x.Name).HasMaxLength(50);
+                    itemBuilder.Property(x => x.Description).HasMaxLength(150);
                 });
+
+                sb.Navigation(s => s.Items)
+                   .HasField("_items") 
+                   .UsePropertyAccessMode(PropertyAccessMode.Field);
             });
+
+            builder.Metadata.FindNavigation(nameof(Menu.Sections))!.SetPropertyAccessMode(PropertyAccessMode.Field);
         }
 
         public void ConfigureMenuDinnerIdsTable(EntityTypeBuilder<Menu> builder)
@@ -100,10 +111,7 @@ namespace KuboDinner.Infrastructure.Persistence.Configurations
                 dinnerIdBuilder.Property(d => d.Value)
                     .HasColumnName("DinnerId")
                     .ValueGeneratedNever();
-            });
-
-            builder.Metadata.FindNavigation(nameof(Menu.DinnerIds))!
-                .SetPropertyAccessMode(PropertyAccessMode.Field);
+            });    
         }
 
         public void ConfigureMenuReviewIdsTable(EntityTypeBuilder<Menu> builder)

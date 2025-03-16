@@ -13,10 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Persistence\Repositories\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\KuboDinner.Application\KuboDinner.Application.csproj" />
   </ItemGroup>
 

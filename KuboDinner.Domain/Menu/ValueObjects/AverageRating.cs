@@ -13,8 +13,8 @@ namespace KuboDinner.Domain.Menu.ValueObjects
             Value = value;
         }
 
-        public int NumRatings { get; set; }
-        public float Value { get; }
+        public int NumRatings { get; private set; }
+        public float Value { get; private set; }
 
         //public static AverageRating CreateUnique()
         //{

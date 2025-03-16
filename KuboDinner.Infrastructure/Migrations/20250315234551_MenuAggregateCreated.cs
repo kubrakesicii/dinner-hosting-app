@@ -15,10 +15,11 @@ namespace KuboDinner.Infrastructure.Migrations
                 name: "Menus",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", maxLength: 50, nullable: false),
                     Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     AverageRating_NumRatings = table.Column<int>(type: "int", nullable: false),
+                    AverageRating_Value = table.Column<float>(type: "real", nullable: false),
                     HostId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: false)
@@ -33,7 +34,7 @@ namespace KuboDinner.Infrastructure.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false),
-                    DinnerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    DinnerId = table.Column<Guid>(type: "uniqueidentifier", maxLength: 50, nullable: false),
                     MenuId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
@@ -52,7 +53,7 @@ namespace KuboDinner.Infrastructure.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false),
-                    MenuReviewId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    MenuReviewId = table.Column<Guid>(type: "uniqueidentifier", maxLength: 50, nullable: false),
                     MenuId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
@@ -90,7 +91,7 @@ namespace KuboDinner.Infrastructure.Migrations
                 name: "MenuItems",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", maxLength: 50, nullable: false),
                     MenuSectionId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     MenuId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),

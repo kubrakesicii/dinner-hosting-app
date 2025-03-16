@@ -27,7 +27,8 @@ namespace KuboDinner.Infrastructure.Persistence.Configurations
                 .ValueGeneratedNever()
                 .HasConversion(
                     id => id.Value,
-                    value => MenuId.CreateUnique());
+                    value => MenuId.CreateUnique())
+                .HasMaxLength(50);
 
             builder.Property(x => x.Name)
                 .HasMaxLength(50);
@@ -76,8 +77,9 @@ namespace KuboDinner.Infrastructure.Persistence.Configurations
                         .ValueGeneratedNever()
                         .HasConversion(
                             itemId => itemId.Value,
-                            value => MenuItemId.CreateUnique());
-
+                            value => MenuItemId.CreateUnique())
+                        .HasMaxLength(50);
+     
                     itemBuilder.Property(i => i.MenuSectionId)
                         .HasConversion(
                             secId => secId.Value,
@@ -110,7 +112,9 @@ namespace KuboDinner.Infrastructure.Persistence.Configurations
 
                 dinnerIdBuilder.Property(d => d.Value)
                     .HasColumnName("DinnerId")
-                    .ValueGeneratedNever();
+                    .ValueGeneratedNever()
+                    .HasMaxLength(50);
+
             });    
         }
 
@@ -124,7 +128,9 @@ namespace KuboDinner.Infrastructure.Persistence.Configurations
 
                 reviewIdBuilder.Property(d => d.Value)
                     .HasColumnName("MenuReviewId")
-                    .ValueGeneratedNever();
+                    .ValueGeneratedNever()
+                    .HasMaxLength(50);
+
             });
 
             builder.Metadata.FindNavigation(nameof(Menu.MenuReviewIds))!

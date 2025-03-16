@@ -25,6 +25,7 @@ namespace KuboDinner.Infrastructure.Migrations
             modelBuilder.Entity("KuboDinner.Domain.Menu.Menu", b =>
                 {
                     b.Property<Guid>("Id")
+                        .HasMaxLength(50)
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreateDate")
@@ -62,6 +63,7 @@ namespace KuboDinner.Infrastructure.Migrations
                                 .HasColumnType("uniqueidentifier");
 
                             b1.Property<Guid>("Value")
+                                .HasMaxLength(50)
                                 .HasColumnType("uniqueidentifier")
                                 .HasColumnName("DinnerId");
 
@@ -82,6 +84,9 @@ namespace KuboDinner.Infrastructure.Migrations
 
                             b1.Property<int>("NumRatings")
                                 .HasColumnType("int");
+
+                            b1.Property<float>("Value")
+                                .HasColumnType("real");
 
                             b1.HasKey("MenuId");
 
@@ -122,6 +127,7 @@ namespace KuboDinner.Infrastructure.Migrations
                             b1.OwnsMany("KuboDinner.Domain.Menu.Entities.MenuItem", "Items", b2 =>
                                 {
                                     b2.Property<Guid>("Id")
+                                        .HasMaxLength(50)
                                         .HasColumnType("uniqueidentifier");
 
                                     b2.Property<Guid>("MenuSectionId")
@@ -162,6 +168,7 @@ namespace KuboDinner.Infrastructure.Migrations
                                 .HasColumnType("uniqueidentifier");
 
                             b1.Property<Guid>("Value")
+                                .HasMaxLength(50)
                                 .HasColumnType("uniqueidentifier")
                                 .HasColumnName("MenuReviewId");
 

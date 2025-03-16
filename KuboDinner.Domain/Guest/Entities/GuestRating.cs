@@ -1,7 +1,7 @@
-﻿using KuboDinner.Domain.Dinner.ValueObjects;
+﻿using KuboDinner.Domain.Common.SeedWork;
+using KuboDinner.Domain.Dinner.ValueObjects;
 using KuboDinner.Domain.Guest.ValueObjects;
 using KuboDinner.Domain.HostAggregate.ValueObjects;
-using KuboDinner.Domain.SeedWork;
 
 namespace KuboDinner.Domain.Guest.Entities
 {

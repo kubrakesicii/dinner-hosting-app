@@ -1,6 +1,6 @@
-﻿using KuboDinner.Domain.Menu.ValueObjects;
+﻿using KuboDinner.Domain.Common.SeedWork;
+using KuboDinner.Domain.Menu.ValueObjects;
 using KuboDinner.Domain.MenuAggregate.Entities;
-using KuboDinner.Domain.SeedWork;
 
 namespace KuboDinner.Domain.Menu.Entities
 {

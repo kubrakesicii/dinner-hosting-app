@@ -1,8 +1,8 @@
-﻿using KuboDinner.Domain.Menu;
+﻿using KuboDinner.Domain.Common.SeedWork;
+using KuboDinner.Domain.Menu;
 using KuboDinner.Domain.Menu.Entities;
 using KuboDinner.Domain.Menu.ValueObjects;
 using KuboDinner.Domain.MenuAggregate.Entities;
-using KuboDinner.Domain.SeedWork;
 using KuboDinner.Infrastructure.Persistence.Configurations;
 using KuboDinner.Infrastructure.Persistence.Interceptors;
 using Microsoft.EntityFrameworkCore;

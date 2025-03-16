@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace KuboDinner.Domain.SeedWork
+namespace KuboDinner.Domain.Common.SeedWork
 {
     public interface IDomainEvent : INotification
     {

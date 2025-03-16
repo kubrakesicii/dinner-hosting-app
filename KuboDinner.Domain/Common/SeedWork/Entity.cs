@@ -1,4 +1,4 @@
-﻿namespace KuboDinner.Domain.SeedWork
+﻿namespace KuboDinner.Domain.Common.SeedWork
 {
     public abstract class Entity<TId> : IEquatable<Entity<TId>>, IHasDomainEvents
         where TId : notnull

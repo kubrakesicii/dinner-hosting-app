@@ -1,10 +1,10 @@
-﻿using KuboDinner.Domain.Dinner.ValueObjects;
+﻿using KuboDinner.Domain.Common.SeedWork;
+using KuboDinner.Domain.Dinner.ValueObjects;
 using KuboDinner.Domain.HostAggregate.ValueObjects;
 using KuboDinner.Domain.Menu.Events;
 using KuboDinner.Domain.Menu.ValueObjects;
 using KuboDinner.Domain.MenuAggregate.Entities;
 using KuboDinner.Domain.MenuReview.ValueObjects;
-using KuboDinner.Domain.SeedWork;
 
 namespace KuboDinner.Domain.Menu
 {

@@ -1,9 +1,9 @@
 ﻿using KuboDinner.Domain.Bill.ValueObjects;
+using KuboDinner.Domain.Common.SeedWork;
 using KuboDinner.Domain.Dinner.ValueObjects;
 using KuboDinner.Domain.Guest.Entities;
 using KuboDinner.Domain.Guest.ValueObjects;
 using KuboDinner.Domain.MenuReview.ValueObjects;
-using KuboDinner.Domain.SeedWork;
 using KuboDinner.Domain.UserAggregate.ValueObjects;
 
 namespace KuboDinner.Domain.Guest

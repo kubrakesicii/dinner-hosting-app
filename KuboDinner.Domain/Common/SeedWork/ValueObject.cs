@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace KuboDinner.Domain.SeedWork
+namespace KuboDinner.Domain.Common.SeedWork
 {
     public abstract class ValueObject : IEquatable<ValueObject>
     {

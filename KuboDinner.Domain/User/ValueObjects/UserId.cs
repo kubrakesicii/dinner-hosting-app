@@ -1,4 +1,4 @@
-﻿using KuboDinner.Domain.SeedWork;
+﻿using KuboDinner.Domain.Common.SeedWork;
 
 namespace KuboDinner.Domain.UserAggregate.ValueObjects
 {

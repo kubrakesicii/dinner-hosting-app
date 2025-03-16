@@ -1,4 +1,4 @@
-﻿namespace KuboDinner.Domain.SeedWork
+﻿namespace KuboDinner.Domain.Common.SeedWork
 {
     public abstract class AggregateRootId<TId> : ValueObject
     {

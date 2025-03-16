@@ -1,4 +1,4 @@
-﻿using KuboDinner.Domain.SeedWork;
+﻿using KuboDinner.Domain.Common.SeedWork;
 using Microsoft.EntityFrameworkCore;
 
 namespace KuboDinner.Domain.Menu.ValueObjects

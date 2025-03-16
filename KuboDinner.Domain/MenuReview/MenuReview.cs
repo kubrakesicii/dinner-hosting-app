@@ -1,8 +1,8 @@
-﻿using KuboDinner.Domain.Guest.ValueObjects;
+﻿using KuboDinner.Domain.Common.SeedWork;
+using KuboDinner.Domain.Guest.ValueObjects;
 using KuboDinner.Domain.HostAggregate.ValueObjects;
 using KuboDinner.Domain.Menu.ValueObjects;
 using KuboDinner.Domain.MenuReview.ValueObjects;
-using KuboDinner.Domain.SeedWork;
 
 namespace KuboDinner.Domain.MenuReview
 {

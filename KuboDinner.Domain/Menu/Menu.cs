@@ -1,5 +1,6 @@
 ﻿using KuboDinner.Domain.Dinner.ValueObjects;
 using KuboDinner.Domain.HostAggregate.ValueObjects;
+using KuboDinner.Domain.Menu.Events;
 using KuboDinner.Domain.Menu.ValueObjects;
 using KuboDinner.Domain.MenuAggregate.Entities;
 using KuboDinner.Domain.MenuReview.ValueObjects;
@@ -7,11 +8,11 @@ using KuboDinner.Domain.SeedWork;
 
 namespace KuboDinner.Domain.Menu
 {
-    public sealed class Menu : AggregateRoot<MenuId>
+    public sealed class Menu : AggregateRoot<MenuId, Guid>
     {
 
         private Menu(MenuId id, string name, string description, AverageRating averageRating, 
-            HostId hostId) : base(id)
+            HostId hostId, List<MenuSection> sections) : base(id)
         {
             Sections = _sections.AsReadOnly().ToList();
             DinnerIds = _dinnerIds.AsReadOnly().ToList();
@@ -20,6 +21,7 @@ namespace KuboDinner.Domain.Menu
             Description = description;
             AverageRating = averageRating;
             HostId = hostId;
+            Sections = sections;
         }
 
         private Menu() { }
@@ -37,10 +39,19 @@ namespace KuboDinner.Domain.Menu
         public IReadOnlyList<DinnerId> DinnerIds { get; private set; }
         public IReadOnlyList<MenuReviewId> MenuReviewIds { get; private set; }
 
-        public static Menu Create(string name, string description, AverageRating averageRating, 
-            HostId hostId)
+
+        // While creating Menu, sections and items within it will be created //Video-14
+        public static Menu Create(HostId hostId,string name, string description, List<MenuSection> sections) 
         { 
-            return new(MenuId.CreateUnique(), name, description, averageRating, hostId);
+            var menu = new Menu(
+                MenuId.CreateUnique(), 
+                name, description,
+                AverageRating.CreateNew(),
+                hostId,
+                sections ?? new());
+
+            menu.AddDomainEvent(new MenuCreated(menu));
+            return menu;
         }
 
     }

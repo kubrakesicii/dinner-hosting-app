@@ -1,11 +1,24 @@
 ﻿namespace KuboDinner.Domain.SeedWork
 {
-    public abstract class Entity<TId> : IEquatable<Entity<TId>>
+    public abstract class Entity<TId> : IEquatable<Entity<TId>>, IHasDomainEvents
         where TId : notnull
     {
         protected Entity() { Id = default!; } // Avoids compiler errors
 
         public TId Id { get; protected set; } //inherit olanlar setleyebilir.
+
+        private readonly List<IDomainEvent> _domainEvents = new();
+        public IReadOnlyList<IDomainEvent> DomainEvents => _domainEvents.AsReadOnly();
+
+        public void AddDomainEvent(IDomainEvent domainEvent)
+        {
+            _domainEvents.Add(domainEvent);
+        }
+
+        public void ClearDomainEvents()
+        {
+            _domainEvents.Clear();
+        }
 
         protected Entity(TId id)
         {

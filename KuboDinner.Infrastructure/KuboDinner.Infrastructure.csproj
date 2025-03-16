@@ -13,11 +13,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\KuboDinner.Domain\KuboDinner.Domain.csproj" />
+    <Folder Include="Persistence\Repositories\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Persistence\Repositories\" />
+    <ProjectReference Include="..\KuboDinner.Application\KuboDinner.Application.csproj" />
   </ItemGroup>
 
 </Project>

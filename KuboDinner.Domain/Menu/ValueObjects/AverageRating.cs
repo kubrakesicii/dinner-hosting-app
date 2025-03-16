@@ -14,12 +14,12 @@ namespace KuboDinner.Domain.Menu.ValueObjects
         }
 
         public int NumRatings { get; private set; }
-        public float Value { get; private set; }
+        public float Value { get; private set;}
 
-        //public static AverageRating CreateUnique()
-        //{
-        //    //return new(Guid.NewGuid());
-        //}
+        public static AverageRating CreateNew()
+        {
+            return new(0,0);
+        }
 
         public override IEnumerable<object> GetEqualityComponents()
         {

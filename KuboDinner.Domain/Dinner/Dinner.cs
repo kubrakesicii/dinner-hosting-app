@@ -7,7 +7,7 @@ using KuboDinner.Domain.SeedWork;
 
 namespace KuboDinner.Domain.Dinner
 {
-    public class Dinner : AggregateRoot<DinnerId>
+    public class Dinner : AggregateRoot<DinnerId,Guid>
     {
         public DinnerId Id { get; private set; }
         public string Name { get; private set; }

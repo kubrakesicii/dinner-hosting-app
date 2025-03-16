@@ -6,7 +6,7 @@ using KuboDinner.Domain.SeedWork;
 
 namespace KuboDinner.Domain.MenuReview
 {
-    public class MenuReview : AggregateRoot<MenuReviewId>
+    public class MenuReview : AggregateRoot<MenuReviewId, Guid>
     {
         private MenuReview() { }
         public MenuReview(MenuReviewId id,MenuId menuId, HostId hostId, GuestId guestId) : base(id)

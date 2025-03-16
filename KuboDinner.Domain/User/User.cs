@@ -5,7 +5,7 @@ using KuboDinner.Domain.UserAggregate.ValueObjects;
 
 namespace KuboDinner.Domain.User
 {
-    public class User : AggregateRoot<UserId>
+    public class User : AggregateRoot<UserId, Guid>
     {
         public User(UserId id, HostId hostId, GuestId guestId): base(id)
         {

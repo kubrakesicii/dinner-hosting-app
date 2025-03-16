@@ -6,7 +6,7 @@ using KuboDinner.Domain.UserAggregate.ValueObjects;
 
 namespace KuboDinner.Domain.Host
 {
-    public sealed class Host : AggregateRoot<HostId>
+    public sealed class Host : AggregateRoot<HostId, Guid>
     {
         public Host(HostId id, UserId userId, string firstName, string lastName, string profileImage, float averageRating) : base(id)
         {

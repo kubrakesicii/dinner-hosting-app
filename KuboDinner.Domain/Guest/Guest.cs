@@ -8,7 +8,7 @@ using KuboDinner.Domain.UserAggregate.ValueObjects;
 
 namespace KuboDinner.Domain.Guest
 {
-    public class Guest : AggregateRoot<GuestId>
+    public sealed class Guest : AggregateRoot<GuestId, Guid>
     {
         public Guest(GuestId id, string firstName, string lastName, float averageRating, string profileImage, UserId userId) : base(id)
         {

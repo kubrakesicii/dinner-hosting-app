@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\KuboDinner.Domain\KuboDinner.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

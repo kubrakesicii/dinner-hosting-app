@@ -4,7 +4,7 @@ namespace KuboDinner.Domain.Dinner.ValueObjects
 {
     public sealed class DinnerId : AggregateRootId<Guid>
     {
-        public override Guid Value { get; private protected set; }
+        public override Guid Value { get; protected set; }
 
         public DinnerId(Guid value)
         {

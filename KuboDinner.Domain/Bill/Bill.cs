@@ -6,7 +6,7 @@ using KuboDinner.Domain.SeedWork;
 
 namespace KuboDinner.Domain.Bill
 {
-    public class Bill : AggregateRoot<BillId>
+    public class Bill : AggregateRoot<BillId, Guid>
     {
         public Bill(BillId id, ValueObjects.Price totalPrice, DinnerId dinnerId, GuestId guestId, HostId hostId) : base(id)
         {

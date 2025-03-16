@@ -1,6 +1,6 @@
 ﻿namespace KuboDinner.Domain.SeedWork
 {
-    public abstract class AggregateRoot<TId> : Entity<TId> where TId : notnull
+    public abstract class AggregateRoot<TId, TIdType> : Entity<TId> where TId : AggregateRootId<TIdType>
     {
         protected AggregateRoot() : base(default!) { } // Pass default value to Entity<TId>
         public DateTime CreateDate { get; private set; } = DateTime.Now;

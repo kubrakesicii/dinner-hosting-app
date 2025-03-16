@@ -2,10 +2,10 @@
 
 namespace KuboDinner.Domain.Menu.ValueObjects
 {
-    public sealed class MenuId : ValueObject
+    public sealed class MenuId : AggregateRootId<Guid>
     {
         private MenuId() { }
-        public Guid Value { get; }
+        public override Guid Value { get; protected set; }
 
         public MenuId(Guid value)
         {
